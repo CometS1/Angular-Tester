@@ -9,10 +9,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <body>
 
-
-
 <div ng-app="myApp" ng-controller="myCtrl" ng-init="firstName=''; lastName=''; " class="container">
-<p>Try to change the names.</p>
+<p>Try to add the names.</p>
 
 <form ng-submit="addNames()">
 <div class="input-group">
@@ -25,13 +23,23 @@
 <input type="text" ng-model="lastName" class="form-control" placeholder="Last Name"><br>
 </div>
 
-<button>Change to name</button>
+<button>Add to list</button>
 </form>
 <br>
 Full Name: {{firstName + " " + lastName}}<br />
-First Name List: {{firstNameList}}<br />
-Last Name List:{{lastNameList}}<br />
 {{errorMessage}}
+
+<table class="table table-striped">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+    </tr>
+    
+        <tr ng-repeat="x in nameList">
+          <td>{{ x[0] }}</td>
+          <td>{{ x[1] }}</td>
+        </tr>
+      </table>
 
 </div>
 

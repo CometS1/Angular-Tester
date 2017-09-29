@@ -1,12 +1,12 @@
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope) {
-    $scope.firstNameList= [];
-    $scope.lastNameList= [];
+    $scope.numberOfNames = 0;
+    $scope.nameList= [];
     $scope.errorMessage = "";
     $scope.addNames = function(){
         if ($scope.firstName != "" && $scope.lastName != ""){
-            $scope.firstNameList.push($scope.firstName);
-            $scope.lastNameList.push($scope.lastName);
+            $scope.nameList.push([$scope.firstName, $scope.lastName]);
+            $scope.numberOfNames += 1;
             $scope.firstName = "";
             $scope.lastName = "";
             $scope.errorMessage = "";
